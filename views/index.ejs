@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript">
+        <!--
+           function findDimensions() {
+               var clientHight = 0;
+               var clientWidth = 0;
+               if (window.innerWidth) {
+                    clientWidth = window.innerWidth; 
+                }    
+                else if ((document.body) && (document.body.clientWidth)) {
+                    clientWidth = document.body.clientWidth;
+                }
+                
+                if (window.innerHeight) {
+                    clientHight = window.innerHeight;
+                }
+                else if ((document.boday) && (document.body.clientHight)) {
+                    clientHight = document.body.clientHight;
+                }
+
+                if (document.documentElement &&
+                    document.documentElement.clientHight &&
+                    document.documentElement.clientWidth) {
+                    clientWidth = document.documentElement.clientWidth;
+                    clientHight = document.documentElement.clientHight;
+                }
+
+                document.getElementById("browserWidth").value = clientWidth;
+                document.getElementById("browserHight").value = clientHight - 4;
+                document.forms["mainform"].submit();
+            }
+       //-->
+    </script>
+ 
+  </head>
+  <body onload="findDimensions()">
+      <form  name="mainform" method="post" action="/loadImage">
+          <input id="browserWidth" name="browserClient[width]" type="hidden" value=""/>
+          <input id="browserHight" name="browserClient[hight]" type="hidden" value=""/>
+      </form>
+ </body>
+</html>
+
