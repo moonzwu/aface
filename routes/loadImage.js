@@ -1,5 +1,5 @@
 var express = require('express');
-var imageops = require('./imageOps.js');
+var FaceImage = require('./faceImage.js');
 var router = express.Router();
 
 /* post home page. */
@@ -16,9 +16,15 @@ router.post('/', function(req, res) {
             imageName: imgInfo.imageName,
             clientWidth : imgInfo.clientWidth,
             clientHight : imgInfo.clientHight
-        });}
+        });
+    }
 
-    imageops.loadImage({'width': width, 'hight': hight}, '/root/nodejs_project/aface/public/images/flower.jpg', renderPage);
+    var faceImage = new FaceImage();
+
+    faceImage.render(
+        {'width': width, 'hight': hight}, 
+        '/root/nodejs_project/aface/public/images/flower.jpg',
+        renderPage);
 });
 
 module.exports = router;
