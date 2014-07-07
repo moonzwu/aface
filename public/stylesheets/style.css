@@ -3,7 +3,16 @@ body {
   margin: 0px;
   text-align: center;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #000;
 }
 a {
   color: #00b7ff;
+}
+h1 {
+  font-size: 60px;
+  color: #fff;
+}
+h2 {
+  font-size: 40px;
+  color: #fff;
 }

@@ -1,0 +1,15 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+    </head>
+    <body>
+        <div style="background-color: white">
+            <form method="post" enctype="multipart/form-data" action="/upload">
+                上传图片:<input type="file" name="imageFile"/>
+                <input type="submit" value="提交"/>
+            </form>
+        </div>
+    </body>
+</html>
