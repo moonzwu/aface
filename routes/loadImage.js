@@ -1,6 +1,9 @@
 var express = require('express');
 var FaceImage = require('./faceImage.js');
 var router = express.Router();
+var path = require('path');
+
+var appDir = path.normalize(path.dirname(require.main.filename) + '/..');
 
 /* post home page. */
 router.post('/', function(req, res) {
@@ -23,7 +26,7 @@ router.post('/', function(req, res) {
 
     faceImage.render(
         {'width': width, 'hight': hight}, 
-        '/root/nodejs_project/aface/public/images/flower.jpg',
+        appDir + '/public/images/flower.jpg',
         renderPage);
 });
 

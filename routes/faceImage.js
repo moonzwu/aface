@@ -1,10 +1,17 @@
 var $p = require('procstreams');
+var path = require('path');
+
+var appDir = path.normalize(path.dirname(require.main.filename) + '/..');
+
+
+
 function FaceImage() {
 
     this.render = function(clientSize, imagePath, renderPage) {
         console.log(imagePath);
         $p('identify ' + imagePath).data(function(err, stdout, stderr) {
             var properties = ('' + stdout).split(' ');
+	    console.log(properties);
             var imageInfo = {
                 'path': properties[0],
                 'type': properties[1],
@@ -25,10 +32,12 @@ function FaceImage() {
     }
 
     function createThumbnail(imagePath, size, renderPage) {
-        var scaleImageCmd = 'java -jar ../aface/lib/scaleimg.jar ';        
+        var scaleImageCmd = 'java -jar ' + appDir + '/lib/scaleimg.jar ';  
+	console.log(scaleImageCmd);      
         $p(scaleImageCmd + imagePath + ' ' + size.width + ' ' + size.hight)
             .data(function(err, stdout, stderr) {
                 if (err) {
+		    console.log('Get error during create thumbnail.')
                     console.log(err.code, err.signal);
                 } else {
                     thumbnailName = 'thumbnail.' + imagePath.replace(/^.*[\\\/]/, '');
