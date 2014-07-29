@@ -1,5 +1,5 @@
 var express = require('express');
-var FaceImage = require('./faceImage.js');
+var Thumbnail = require('./thumbnail.js');
 var router = express.Router();
 var path = require('path');
 
@@ -14,7 +14,7 @@ router.post('/', function(req, res) {
 
     var renderPage = function(imgInfo) {
         console.log(imgInfo);
-        res.render('loadImage', {
+        res.render('showFace', {
             title: 'My Face',
             imageName: imgInfo.imageName,
             clientWidth : imgInfo.clientWidth,
@@ -22,9 +22,9 @@ router.post('/', function(req, res) {
         });
     }
 
-    var faceImage = new FaceImage();
+    var thumbnail = new Thumbnail();
 
-    faceImage.render(
+    thumbnail.render(
         {'width': width, 'hight': hight}, 
         appDir + '/public/images/flower.jpg',
         renderPage);
